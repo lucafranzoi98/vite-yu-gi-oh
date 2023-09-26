@@ -1,5 +1,11 @@
 @use '/node_modules/bootstrap/scss/bootstrap.scss';
+@use "./partials/variables.scss" as *;
 
-div{
-   background-color: blue;
+@mixin y_container{
+   max-width: 1170px;
+   margin: auto;
+}
+
+.my_container{
+   @include y_container;
 }
