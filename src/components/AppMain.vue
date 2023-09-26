@@ -1,6 +1,6 @@
 <script>
 import AppSelector from './AppSelector.vue';
-import { state } from "../state"
+import { state } from "../state";
 import AppCard from './AppCard.vue';
 
 
@@ -30,14 +30,19 @@ export default{
          
          <AppSelector class="w-25 mb-3"></AppSelector>
 
+
          <div class="bg-white p-5">
-            <div class="bg-dark p-3 text-white">
-               <h4>Found N cards</h4>
+            <div class="bg-dark p-3 text-white" v-if="state.cards">
+               <h4>Found {{ state.results }} cards</h4>
                <div class="row mt-2 gy-3">
                
-                  <AppCard v-for="card in state.cards" :image="card.card_images[0].image_url_small" :name="card.name" :archetype="card.archetype"></AppCard>
+                  <AppCard v-for="card in state.cards" :image="card.card_images[0].image_url_small" :name="card.name" :archetype="card.archetype" v-show="card.archetype == 'Alien'"></AppCard>
 
                </div>
+            </div>
+
+            <div class="text-center" v-else>
+               <span>Loading</span>
             </div>
          </div>
 

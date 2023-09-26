@@ -13,3 +13,7 @@ main{
 .my_container{
    @include y_container;
 }
+
+.my-col-5{
+   width: calc(100% / 5);
+}

@@ -11,7 +11,7 @@ export default{
 
 <template>
 
-   <div class="col-2">
+   <div class="my-col-5">
       <div class="card h-100">
          <img :src="image" class="card-img-top">
          <div class="card-body">
