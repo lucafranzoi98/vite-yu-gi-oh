@@ -6,6 +6,10 @@
    margin: auto;
 }
 
+main{
+   background-color: $y-primary
+}
+
 .my_container{
    @include y_container;
 }
