@@ -29,7 +29,7 @@ export default{
    <main>
       <div class="my_container py-3">
          
-         <AppSelector class="w-25 mb-3"></AppSelector>
+         <AppSelector class="w-25 mb-3" @select-archetype="state.changeUrl()"></AppSelector>
 
 
          <div class="bg-white p-5">

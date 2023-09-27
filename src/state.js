@@ -5,11 +5,13 @@ export const state = reactive({
    cards: null,
    results: null,
    selector: "",
+   selectedArchetype: "",
+   base_url: "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0",
 
 
    fetchData(){
       axios
-      .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
+      .get(this.base_url)
       .then(response => {
          this.cards = response.data.data;
          this.results = this.cards.length;
@@ -21,7 +23,16 @@ export const state = reactive({
       .get("https://db.ygoprodeck.com/api/v7/archetypes.php")
       .then(response => {
          this.selector = response.data;
-         console.log(this.selector);
+      })
+   },
+
+   changeUrl(){
+      this.base_url += "&archetype=" + this.selectedArchetype;
+      axios
+      .get(this.base_url)
+      .then (response => {
+         this.cards = response.data.data;
+         this.results = this.cards.length;
       })
    }
       
