@@ -17,6 +17,7 @@ export default{
    },
    created (){
       state.fetchData()
+      state.dataSelector()
    }
 }
 
@@ -36,7 +37,7 @@ export default{
                <h4>Found {{ state.results }} cards</h4>
                <div class="row mt-2 gy-3">
                
-                  <AppCard v-for="card in state.cards" :image="card.card_images[0].image_url_small" :name="card.name" :archetype="card.archetype" v-show="card.archetype == 'Alien'"></AppCard>
+                  <AppCard v-for="card in state.cards" :image="card.card_images[0].image_url_small" :name="card.name" :archetype="card.archetype"></AppCard>
 
                </div>
             </div>
